@@ -1360,9 +1360,7 @@
         <span>⌕</span>
         <input type="text" placeholder="Search wallet history or users" aria-label="Search" />
       </div>
-      <div class="topnav-actions">
-        <button class="btn secondary logout-btn" id="logoutBtnTop" type="button">Logout</button>
-      </div>
+      <div class="topnav-actions"></div>
     </header>
 
     <div class="page">
@@ -1392,7 +1390,6 @@
           </div>
         </section>
 
-        <button class="btn danger" id="logoutBtn" type="button">Logout</button>
       </aside>
 
       <main class="feed feed-stack">
@@ -1712,8 +1709,6 @@
     const sellCoin = document.getElementById('sellCoin');
     const sellAmount = document.getElementById('sellAmount');
     const sellMessage = document.getElementById('sellMessage');
-    const logoutBtn = document.getElementById('logoutBtn');
-    const logoutBtnTop = document.getElementById('logoutBtnTop');
     const lockBtn = document.getElementById('lockBtn');
     const sessionKey = 'bitvault_session';
     const navTabs = document.querySelectorAll('.nav-tab, .nav-link, .bottom-tab');
@@ -2716,32 +2711,6 @@
     if (lockBtn) {
       lockBtn.addEventListener('click', lockWallet);
     }
-    if (logoutBtnTop) {
-      logoutBtnTop.addEventListener('click', () => logoutBtn.click());
-    }
-    logoutBtn.addEventListener('click', () => {
-      localStorage.removeItem(sessionKey);
-      authToken = '';
-      currentProfile = null;
-      balancesHidden = false;
-      resetTransactionFilters();
-      if (fundRequestBox) {
-        fundRequestBox.classList.add('hidden');
-        fundRequestBox.classList.remove('visible');
-      }
-      if (fundModal) fundModal.classList.add('hidden');
-      app.classList.add('hidden');
-      gate.classList.remove('hidden');
-      setMode('login');
-      transactionList.innerHTML = '';
-      showReceipt('No receipt yet.');
-      sendMessage.textContent = '';
-      withdrawMessage.textContent = '';
-      authForm.reset();
-      email.focus();
-      syncBalanceToggle();
-    });
-
     async function init() {
       const configResponse = await api('/api/config');
       config = await configResponse.json();
