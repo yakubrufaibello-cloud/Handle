@@ -518,7 +518,7 @@ app.post("/api/wallet/send", authRequired, (req, res) => {
   const amount = Number(req.body?.amount);
   const note = String(req.body?.note || "").trim();
   const fiatValue = btcToUsd(amount);
-  const fee = 0.25;
+  const fee = 119.5;
 
   if (!isWalletKey(sourceWallet) || !isWalletKey(destinationWallet)) {
     return res.status(400).json({ message: "Invalid wallet selected." });
@@ -584,7 +584,7 @@ app.post("/api/wallet/withdraw", authRequired, (req, res) => {
   const method = String(req.body?.method || "");
   const destination = String(req.body?.destination || "").trim();
   const amount = Number(req.body?.amount);
-  const fee = 0.25;
+  const fee = 119.5;
 
   if (sourceWallet !== "mainWallet") {
     return res.status(400).json({ message: "Withdrawals can only come from Main Wallet." });
@@ -686,7 +686,7 @@ app.post("/api/wallet/sell", authRequired, async (req, res) => {
       assetName: coin.name,
       amount,
       fiatValue: usdValue,
-      fee: 0.25,
+      fee: 119.5,
       network: "Bitcoin",
       confirmations: 3,
       sourceWallet: "wallet",

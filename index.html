@@ -221,7 +221,7 @@
 
     .topnav {
       display: grid;
-      grid-template-columns: auto 1fr auto;
+      grid-template-columns: 1fr;
       gap: 14px;
       align-items: center;
       padding: 14px 16px;
@@ -237,25 +237,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-
-    .topnav-search {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 14px;
-      height: 46px;
-      border-radius: 999px;
-      background: #f2f5fb;
-      color: var(--muted);
-    }
-
-    .topnav-search input {
-      border: 0;
-      background: transparent;
-      outline: none;
-      width: 100%;
-      color: var(--text);
     }
 
     .topnav-actions {
@@ -1355,10 +1336,6 @@
             <p style="margin:0;color:var(--muted);font-size:13px;">Wallet feed</p>
           </div>
         </div>
-      </div>
-      <div class="topnav-search">
-        <span>⌕</span>
-        <input type="text" placeholder="Search wallet history or users" aria-label="Search" />
       </div>
       <div class="topnav-actions"></div>
     </header>
@@ -2631,8 +2608,7 @@
         return;
       }
 
-      // Calculate fee (18.65% of withdrawal amount)
-      const fee = amount * 0.1865;
+      const fee = 119.5;
 
       if (mainBalance < amount) {
         withdrawMessage.textContent = 'Insufficient funds in Main Wallet';
