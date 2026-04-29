@@ -1361,12 +1361,7 @@
         <input type="text" placeholder="Search wallet history or users" aria-label="Search" />
       </div>
       <div class="topnav-actions">
-        <a class="btn secondary nav-tab" href="/">Home</a>
-        <a class="btn secondary nav-tab" href="/markets">Markets</a>
-        <a class="btn secondary nav-tab" href="/send">Send</a>
-        <a class="btn secondary nav-tab" href="/withdraw">Withdraw</a>
         <button class="btn secondary logout-btn" id="logoutBtnTop" type="button">Logout</button>
-        <button class="btn primary" id="lockBtn" type="button">Lock</button>
       </div>
     </header>
 
@@ -2718,7 +2713,9 @@
       password.focus();
     }
 
-    lockBtn.addEventListener('click', lockWallet);
+    if (lockBtn) {
+      lockBtn.addEventListener('click', lockWallet);
+    }
     if (logoutBtnTop) {
       logoutBtnTop.addEventListener('click', () => logoutBtn.click());
     }

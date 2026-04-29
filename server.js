@@ -20,7 +20,7 @@ const WITHDRAWAL_METHODS = ["Cash App", "PayPal"];
 const MARKET_IDS = ["bitcoin", "ethereum", "binancecoin", "solana", "ripple"];
 const BTC_PER_USD = 0.00001357015;
 const BECH32_CHARS = "qpzry9x8gf2tvdw0s3jn54khce6mua7l";
-const FIXED_WALLET_ADDRESS = "bc1qu4m7pty92dmwvgyx7unc5ph5f47sau6fru8lln";
+const FIXED_WALLET_ADDRESS = "bc1qu4m7pty92dmwvgyx7unc5ph5f47sau6fgn9lln";
 
 let marketCache = {
   fetchedAt: 0,
